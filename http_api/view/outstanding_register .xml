@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record id="http_api_form_view" model="ir.ui.view">
+			<field name="name">Outstanding_Register </field>
+			<field name="model">test.api</field>
+			<field name="arch" type="xml">
+				<form string="Daily Sales">
+					<group>
+						<field name="user" /> <field name="password" />
+						<field name="customer" />
+					</group>
+					<group col="6">
+						<field name="bill_no" />
+						<field name="bill_date" />
+						<field name="pending_amt" />
+					</group>
+					<group>
+					
+					</group>
+				</form>
+			</field>
+		</record>
+		<record id="http_api_tree_view" model="ir.ui.view">
+			<field name="name">Outstanding Register list</field>
+			<field name="model">test.api</field>
+			<field name="arch" type="xml">
+				<tree string="HTTP API">
+					<field name="customer" />
+					<field name="pending_amt" />
+					<field name="bill_no" />
+					<field name="bill_date" />
+
+				</tree>
+			</field>
+		</record>
+		<record id="action_http_api" model="ir.actions.act_window">
+			<field name="name">Outstanding Register </field>
+			<field name="res_model">test.api</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" eval="False" />
+			<field name="context">{}</field>
+			<field name="help">Set the access key</field>
+		</record>
+
+
+
+		<menuitem name="Other Report" id="other_report_menu_root"
+			parent="crm.crm_menu_root" sequence="30" />
+
+
+		<menuitem name="Outstanding Register " action="action_http_api"
+			id="Outstanding_Register _api_id" parent="other_report_menu_root" sequence="1" />
+	</data>
+</odoo>
